@@ -99,6 +99,7 @@ namespace SimpleInterpreter.Grammar
             throw new InvalidProgramException($"Invalid character: {currentChar}");
         }
 
+
         private Token ReadInteger()
         {
             string result = "";
@@ -111,5 +112,6 @@ namespace SimpleInterpreter.Grammar
 
             return new Token(TokenType.Integer, result);
         }
+
     }
 }

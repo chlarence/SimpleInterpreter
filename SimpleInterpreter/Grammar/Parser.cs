@@ -69,6 +69,7 @@ namespace SimpleInterpreter.Grammar
             return result;
         }
 
+
         private int Factor()
         {
             Token token = NextToken();

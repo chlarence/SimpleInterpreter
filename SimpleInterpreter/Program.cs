@@ -13,18 +13,27 @@ namespace SimpleInterpreter
         {
             while (true)
             {
-                Console.Write(">>> ");
-                string input = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(input))
+                try
                 {
-                    continue;
-                }
+                    Console.Write(">>>");
+                    string input = Console.ReadLine();
 
-                Lexer lexer = new Lexer(input);
-                Parser parser = new Parser(lexer.Tokenize());
-                int result = parser.Parse();
-                Console.WriteLine(result);
+                    if (string.IsNullOrWhiteSpace(input))
+                    {
+                        continue;
+                    }
+
+                    Lexer lexer = new Lexer(input);
+                    Parser parser = new Parser(lexer.Tokenize());
+                    int result = parser.Parse();
+                    Console.WriteLine(result);
+
+                    Console.ReadKey(); // wait for input before continuing
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
             }
         }
     }
